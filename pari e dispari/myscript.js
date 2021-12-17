@@ -8,12 +8,12 @@ Dichiariamo chi ha vinto.
 function fetchDataNumber(){ /* prendiamo il numero selezionato dall'utente */
     const n1 = parseInt(document.getElementById("n1").value); /* numero scelto dall'utente */
     return n1;
-}
+};
 
 function fetchDataChoice(){ /* prendiamo i valori di pari o dispari selezionati dall'utente */
     const pari = parseInt(document.getElementById("even-odd").value); /* scelta di pari o dispari */
     return pari;
-}
+};
 
 function evenCheck (number){ /* controlla se un numero è pari */
     if (number % 2 == 0) {
@@ -27,22 +27,24 @@ function integerGenerator (inf,sup){ /* generatore casuale di numeri */
 };
 
 function evenAndOdd (n1,pari){ /* giocata completa partendo da numero e scelta del giocatore */
+    const endGameText = document.getElementById("endgametext");
+    endGameText.innerHTML = ""
     let n2 = integerGenerator(1,5); /* genera un numero da 1 a 5 */
     let result = evenCheck(n1 + n2); /* controlla se la somma tra numero dell'utente e numero generato è pari */
     if (result){ /* caso con somma pari */
         if(pari){ /* caso con scelta pari dell'utente */
-            console.log(n1+" + "+n2+" è Pari! Hai vinto!");
+            endGameText.innerHTML +=n1+" + "+n2+" è Pari! Hai vinto!";
         }
         else{ /* caso scelta dispari */
-            console.log(n1+" + "+n2+" è Pari! Hai perso!")
+            endGameText.innerHTML +=n1+" + "+n2+" è Pari! Hai perso!";
         }
     }
     else{ /* caso a somma dispari */
         if(pari){ /* caso scelta pari */
-            console.log(n1+" + "+n2+" è Dispari! Hai perso!");
+            endGameText.innerHTML +=n1+" + "+n2+" è Dispari! Hai perso!";
         }
         else{ /* caso scelta dispari */
-            console.log(n1+" + "+n2+" è Dispari! Hai vinto!");
+            endGameText.innerHTML +=n1+" + "+n2+" è Dispari! Hai vinto!";
         }
     }
 };

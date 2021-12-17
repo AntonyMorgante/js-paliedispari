@@ -16,10 +16,12 @@ function checkPali(word){ /* funzione di controllo palindromia */
 }
 
 function controlPali(){
+    const result = document.getElementById("result");
+    result.innerHTML = ""
     if(checkPali(fetchWord())){
-        console.log("La parola da te inserita è palindroma!")
+        result.innerHTML += "La parola da te inserita è palindroma!"
     }
     else{
-        console.log("La parola da te inserita non è palindroma!");
+        result.innerHTML +="La parola da te inserita non è palindroma!";
     }
 };
